@@ -2,6 +2,11 @@
 import { motion } from 'framer-motion'
 
 export default function HeroSection() {
+  const handleScroll = () => {
+    const el = document.getElementById('apply')
+    if (el) el.scrollIntoView({ behavior: 'smooth' })
+  }
+
   return (
     <section className="relative min-h-screen flex items-center">
       {/* Градиентный фон */}
@@ -28,6 +33,7 @@ export default function HeroSection() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.4 }}
           className="bg-gradient-to-r from-purple-600 to-pink-600 text-white px-8 py-4 rounded-lg font-semibold hover:shadow-lg transition-shadow"
+          onClick={handleScroll}
         >
           Запросить доступ к бета-версии
         </motion.button>
