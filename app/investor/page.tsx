@@ -1,8 +1,18 @@
 'use client';
-import React from 'react';
+import React, { useState } from 'react';
 import InvestorForm from '../../components/InvestorForm';
 
+const investorScreens = [
+  '/img/1.jpeg',
+  '/img/2.jpeg',
+  '/img/3.jpeg',
+  '/img/4.jpeg',
+  '/img/5.jpeg',
+];
+
 export default function InvestorLanding() {
+  const [lightboxSrc, setLightboxSrc] = useState<string | null>(null);
+
   const handleScrollToForm = () => {
     const el = document.getElementById('investor-form');
     if (el) el.scrollIntoView({ behavior: 'smooth' });
@@ -93,16 +103,44 @@ export default function InvestorLanding() {
           <h2 className='text-3xl font-bold mb-8 text-center'>SOON 2025....</h2>
           <div className='text-gray-400 mb-8 text-center max-w-2xl mx-auto'>Платформа в активной разработке. Эта инфраструктура уже строится нами. Личный кабинет, интерфейс сделок, ордербук и логика маршрутов — все это скоро выйдет в свет.</div>
           <div className='flex gap-6 overflow-x-auto pb-4'>
-            {[1,2,3,4,5,6].map((i) => (
-              <div key={i} className='relative min-w-[340px] h-64 bg-dark-secondary border border-gray-800 rounded-lg overflow-hidden group'>
+            {investorScreens.map((src, i) => (
+              <div key={i} className='relative min-w-[340px] h-64 bg-dark-secondary border border-gray-800 rounded-lg overflow-hidden group flex items-center justify-center cursor-pointer' onClick={() => setLightboxSrc(src)}>
                 <div className='absolute inset-0 bg-gradient-to-t from-black/80 to-transparent flex items-center justify-center z-10 group-hover:opacity-0 transition-opacity'>
                   <span className='text-3xl text-gray-500'>🔒</span>
                 </div>
-                <div className='w-full h-full bg-gray-700 group-hover:scale-105 transition-transform' />
+                <img
+                  src={src}
+                  alt={`Скриншот платформы ${i + 1}`}
+                  className='w-full h-full object-cover group-hover:scale-105 transition-transform duration-300'
+                  draggable={false}
+                />
               </div>
             ))}
           </div>
         </div>
+        {/* Lightbox Modal */}
+        {lightboxSrc && (
+          <div
+            className='fixed inset-0 z-50 flex items-center justify-center bg-black/80 backdrop-blur-sm transition-all'
+            onClick={() => setLightboxSrc(null)}
+          >
+            <div className='relative max-w-3xl w-full flex justify-center items-center' onClick={e => e.stopPropagation()}>
+              <button
+                className='absolute top-2 right-2 text-white text-3xl bg-black/60 rounded-full p-2 hover:bg-black/80 transition-colors z-10'
+                onClick={() => setLightboxSrc(null)}
+                aria-label='Закрыть'
+              >
+                &times;
+              </button>
+              <img
+                src={lightboxSrc}
+                alt='Скриншот платформы (увеличено)'
+                className='max-h-[80vh] max-w-full rounded-lg shadow-2xl border border-gray-700'
+                draggable={false}
+              />
+            </div>
+          </div>
+        )}
       </section>
 
       {/* Форма заявки инвестора */}
