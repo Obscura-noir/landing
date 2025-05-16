@@ -1,5 +1,5 @@
 'use client';
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import InvestorForm from '../../components/InvestorForm';
 
 const investorScreens = [
@@ -12,46 +12,11 @@ const investorScreens = [
 
 export default function InvestorLanding() {
   const [lightboxSrc, setLightboxSrc] = useState<string | null>(null);
-  const [lightboxIndex, setLightboxIndex] = useState<number>(0);
 
   const handleScrollToForm = () => {
     const el = document.getElementById('investor-form');
     if (el) el.scrollIntoView({ behavior: 'smooth' });
   };
-
-  // Открытие lightbox по индексу
-  const openLightbox = (index: number) => {
-    setLightboxIndex(index);
-    setLightboxSrc(investorScreens[index]);
-  };
-
-  // Перемещение влево
-  const handlePrev = (e?: React.MouseEvent) => {
-    if (e) e.stopPropagation();
-    const prevIndex = (lightboxIndex - 1 + investorScreens.length) % investorScreens.length;
-    setLightboxIndex(prevIndex);
-    setLightboxSrc(investorScreens[prevIndex]);
-  };
-
-  // Перемещение вправо
-  const handleNext = (e?: React.MouseEvent) => {
-    if (e) e.stopPropagation();
-    const nextIndex = (lightboxIndex + 1) % investorScreens.length;
-    setLightboxIndex(nextIndex);
-    setLightboxSrc(investorScreens[nextIndex]);
-  };
-
-  // Клавиатурное управление
-  useEffect(() => {
-    if (!lightboxSrc) return;
-    const handleKeyDown = (e: KeyboardEvent) => {
-      if (e.key === 'ArrowLeft') handlePrev();
-      if (e.key === 'ArrowRight') handleNext();
-      if (e.key === 'Escape') setLightboxSrc(null);
-    };
-    window.addEventListener('keydown', handleKeyDown);
-    return () => window.removeEventListener('keydown', handleKeyDown);
-  }, [lightboxSrc, lightboxIndex]);
 
   return (
     <main className='bg-dark-bg text-white'>
@@ -139,7 +104,7 @@ export default function InvestorLanding() {
           <div className='text-gray-400 mb-8 text-center max-w-2xl mx-auto'>Платформа в активной разработке. Эта инфраструктура уже строится нами. Личный кабинет, интерфейс сделок, ордербук и логика маршрутов — все это скоро выйдет в свет.</div>
           <div className='flex gap-6 overflow-x-auto pb-4'>
             {investorScreens.map((src, i) => (
-              <div key={i} className='relative min-w-[340px] h-64 bg-dark-secondary border border-gray-800 rounded-lg overflow-hidden group flex items-center justify-center cursor-pointer' onClick={() => openLightbox(i)}>
+              <div key={i} className='relative min-w-[340px] h-64 bg-dark-secondary border border-gray-800 rounded-lg overflow-hidden group flex items-center justify-center cursor-pointer' onClick={() => setLightboxSrc(src)}>
                 <div className='absolute inset-0 bg-gradient-to-t from-black/80 to-transparent flex items-center justify-center z-10 group-hover:opacity-0 transition-opacity'>
                   <span className='text-3xl text-gray-500'>🔒</span>
                 </div>
@@ -167,26 +132,6 @@ export default function InvestorLanding() {
               >
                 &times;
               </button>
-              {/* Стрелка влево */}
-              {investorScreens.length > 1 && (
-                <button
-                  className='absolute left-2 top-1/2 -translate-y-1/2 text-white text-4xl bg-black/60 rounded-full p-2 hover:bg-black/80 transition-colors z-10'
-                  onClick={handlePrev}
-                  aria-label='Предыдущее изображение'
-                >
-                  &#8592;
-                </button>
-              )}
-              {/* Стрелка вправо */}
-              {investorScreens.length > 1 && (
-                <button
-                  className='absolute right-2 top-1/2 -translate-y-1/2 text-white text-4xl bg-black/60 rounded-full p-2 hover:bg-black/80 transition-colors z-10'
-                  onClick={handleNext}
-                  aria-label='Следующее изображение'
-                >
-                  &#8594;
-                </button>
-              )}
               <img
                 src={lightboxSrc}
                 alt='Скриншот платформы (увеличено)'
