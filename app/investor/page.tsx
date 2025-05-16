@@ -80,7 +80,7 @@ export default function InvestorLanding() {
             <li>Инвестор получает долю от прибыли</li>
             <li>Чем больше маршрутов — тем больше сделок</li>
           </ul>
-          <div className='text-gray-400 mb-8'>Доход инвестора начинается с первой сделки. Продукт не зависит от рекламы — он работает внутри существующего спроса.</div>
+          <div className='text-gray-400 mb-8'>Доход инвестора начинается с первой сделки. Продукт не зависит от рекламы — он работает в закрытом рынке.</div>
           <div className='flex justify-center'>
             <button onClick={handleScrollToForm} className='bg-gradient-to-r from-accent-purple to-accent-pink text-white px-8 py-4 rounded-lg font-semibold hover:shadow-lg transition-shadow'>Запросить финмодель</button>
           </div>
