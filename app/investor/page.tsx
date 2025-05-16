@@ -1,6 +1,13 @@
+'use client';
 import React from 'react';
+import InvestorForm from '../../components/InvestorForm';
 
 export default function InvestorLanding() {
+  const handleScrollToForm = () => {
+    const el = document.getElementById('investor-form');
+    if (el) el.scrollIntoView({ behavior: 'smooth' });
+  };
+
   return (
     <main className='bg-dark-bg text-white'>
       {/* Hero Section */}
@@ -17,8 +24,8 @@ export default function InvestorLanding() {
             <li>Теперь это — Смарт-контракты, escrow и маршрут в коде.</li>
           </ul>
           <div className='flex flex-col md:flex-row gap-4 justify-center'>
-            <button className='bg-gradient-to-r from-accent-purple to-accent-pink text-white px-8 py-4 rounded-lg font-semibold hover:shadow-lg transition-shadow'>Стать инвестором</button>
-            <a href='#' className='px-8 py-4 rounded-lg border border-accent-purple text-accent-purple font-semibold hover:bg-accent-purple/10 transition'>Скачать презентацию</a>
+            <button onClick={handleScrollToForm} className='bg-gradient-to-r from-accent-purple to-accent-pink text-white px-8 py-4 rounded-lg font-semibold hover:shadow-lg transition-shadow'>Стать инвестором</button>
+            <a href='https://drive.google.com/file/d/1h5IGsWQflCqzkoPmK9fVPu2UReHLRNRx/view?usp=sharing' className='px-8 py-4 rounded-lg border border-accent-purple text-accent-purple font-semibold hover:bg-accent-purple/10 transition'>Скачать презентацию</a>
           </div>
         </div>
       </section>
@@ -75,7 +82,7 @@ export default function InvestorLanding() {
           </ul>
           <div className='text-gray-400 mb-8'>Доход инвестора начинается с первой сделки. Продукт не зависит от рекламы — он работает внутри существующего спроса.</div>
           <div className='flex justify-center'>
-            <button className='bg-gradient-to-r from-accent-purple to-accent-pink text-white px-8 py-4 rounded-lg font-semibold hover:shadow-lg transition-shadow'>Запросить финмодель</button>
+            <button onClick={handleScrollToForm} className='bg-gradient-to-r from-accent-purple to-accent-pink text-white px-8 py-4 rounded-lg font-semibold hover:shadow-lg transition-shadow'>Запросить финмодель</button>
           </div>
         </div>
       </section>
@@ -90,7 +97,7 @@ export default function InvestorLanding() {
             <span className='inline-flex items-center px-4 py-2 bg-dark-secondary border border-gray-800 rounded-lg'><span className='mr-2'>📜</span>Документы: зашиты</span>
             <span className='inline-flex items-center px-4 py-2 bg-dark-secondary border border-gray-800 rounded-lg'><span className='mr-2'>🔐</span>Гарантии: смарт-контракт + escrow</span>
           </div>
-          <div className='text-gray-400 mb-4'>Больше примеров и информации в презентации: <a href='#' className='text-accent-purple underline'>СКАЧАТЬ</a></div>
+          <div className='text-gray-400 mb-4'>Больше примеров и информации в презентации: <a href='https://drive.google.com/file/d/1h5IGsWQflCqzkoPmK9fVPu2UReHLRNRx/view?usp=sharing' className='text-accent-purple underline'>СКАЧАТЬ</a></div>
         </div>
       </section>
 
@@ -113,26 +120,11 @@ export default function InvestorLanding() {
       </section>
 
       {/* Форма заявки инвестора */}
-      <section className='py-20 border-t border-gray-800'>
+      <section id='investor-form' className='py-20 border-t border-gray-800'>
         <div className='container mx-auto px-4 max-w-xl'>
           <h2 className='text-3xl font-bold mb-4 text-center'>Время первых</h2>
           <div className='text-gray-400 mb-6 text-center'>SECTOR 8 — не публичный раунд. Мы рассматриваем только одного стратегического партнёра.</div>
-          <form className='space-y-6'>
-            <div>
-              <input type='text' placeholder='Имя' className='w-full px-4 py-3 bg-gray-900 border border-gray-800 rounded-lg text-white focus:border-accent-purple focus:ring-2 focus:ring-accent-purple' />
-            </div>
-            <div>
-              <input type='email' placeholder='Email' className='w-full px-4 py-3 bg-gray-900 border border-gray-800 rounded-lg text-white focus:border-accent-purple focus:ring-2 focus:ring-accent-purple' />
-            </div>
-            <div>
-              <input type='text' placeholder='Telegram / WhatsApp' className='w-full px-4 py-3 bg-gray-900 border border-gray-800 rounded-lg text-white focus:border-accent-purple focus:ring-2 focus:ring-accent-purple' />
-            </div>
-            <div>
-              <textarea placeholder='Комментарий' rows={3} className='w-full px-4 py-3 bg-gray-900 border border-gray-800 rounded-lg text-white focus:border-accent-purple focus:ring-2 focus:ring-accent-purple' />
-            </div>
-            <button type='submit' className='w-full bg-gradient-to-r from-accent-purple to-accent-pink text-white py-3 rounded-lg font-semibold hover:shadow-lg transition-shadow'>Отправить заявку</button>
-            <div className='text-xs text-gray-500 text-center mt-2'>Информация строго конфиденциальна. Заявка — не обязательство.</div>
-          </form>
+          <InvestorForm />
         </div>
       </section>
 
