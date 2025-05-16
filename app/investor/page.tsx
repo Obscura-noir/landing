@@ -45,10 +45,10 @@ export default function InvestorLanding() {
             </div>
             <div className='bg-dark-secondary border border-error rounded-lg p-6'>
               <div className='text-3xl mb-2'>❌</div>
-              <div className='text-lg font-semibold mb-2'>Серые схемы — не гарантируют исполнение</div>
+              <div className='text-lg font-semibold mb-2'>Серые схемы не гарантируют исполнение</div>
             </div>
           </div>
-          <div className='text-center text-gray-400 mt-8'>Никто не дал этому рынку прозрачную и безопасную инфраструктуру. Мы — первые, кто её строит.</div>
+          <div className='text-center text-gray-400 mt-8'>Никто не дал этому рынку прозрачную и безопасную инфраструктуру. Мы первые, кто её строит.</div>
         </div>
       </section>
 
@@ -58,9 +58,9 @@ export default function InvestorLanding() {
           <h2 className='text-3xl font-bold mb-8 text-center'>Как это работает</h2>
           <div className='grid md:grid-cols-4 gap-6 mb-8'>
             <div className='bg-dark-secondary border border-gray-800 rounded-lg p-6'>SECTOR 8 — платформа, через которую компании переводят деньги напрямую, минуя банки.</div>
-            <div className='bg-dark-secondary border border-gray-800 rounded-lg p-6'>Выбор страны, маршрута, условий — внутри интерфейса.</div>
+            <div className='bg-dark-secondary border border-gray-800 rounded-lg p-6'>Выбор страны, маршрута, условий находится внутри интерфейса.</div>
             <div className='bg-dark-secondary border border-gray-800 rounded-lg p-6'>Смарт-контракт блокирует средства, проверяет условия и запускает расчёт.</div>
-            <div className='bg-dark-secondary border border-gray-800 rounded-lg p-6'>Все шаги — зашиты в код. Никакого ручного контроля.</div>
+            <div className='bg-dark-secondary border border-gray-800 rounded-lg p-6'>Все шаги зашиты в код. Никакого ручного контроля.</div>
           </div>
           <div className='flex flex-wrap gap-4 justify-center mb-4'>
             <span className='inline-flex items-center px-4 py-2 bg-dark-secondary border border-success rounded-lg text-success font-semibold'>✅ Без SWIFT</span>
@@ -73,7 +73,7 @@ export default function InvestorLanding() {
       {/* Бизнес-модель */}
       <section className='py-20 border-t border-gray-800'>
         <div className='container mx-auto px-4 max-w-2xl'>
-          <h2 className='text-3xl font-bold mb-8 text-center'>Деньги здесь. Вот как мы их берём.</h2>
+          <h2 className='text-3xl font-bold mb-8 text-center'>Деньги здесь. Вот как мы их зарабатываем</h2>
           <ul className='list-disc list-inside text-lg text-gray-300 space-y-2 mb-6'>
             <li>Каждая сделка приносит 0.2–1% комиссии</li>
             <li>Доход платформы зависит от объёма транзакций</li>
