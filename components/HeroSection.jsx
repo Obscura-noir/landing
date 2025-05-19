@@ -30,15 +30,25 @@ export default function HeroSection() {
         >
           Без банков, без блокировок, без риска. Платите или получайте в USDT и других активах через защищённый эскроу. В 2–3 раза дешевле SWIFT.
         </motion.p>
-        <motion.button
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.4 }}
-          className="bg-gradient-to-r from-accent-purple to-accent-pink text-white px-8 py-4 rounded-lg font-semibold hover:shadow-lg transition-shadow text-lg"
-          onClick={handleScroll}
-        >
-          Запросить доступ к бета-версии
-        </motion.button>
+        <div className="flex flex-col md:flex-row gap-4 justify-start">
+          <motion.button
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.4 }}
+            className="bg-gradient-to-r from-accent-purple to-accent-pink text-white px-8 py-4 rounded-lg font-semibold hover:shadow-lg transition-shadow text-lg"
+            onClick={handleScroll}
+          >
+            Запросить доступ к бета-версии
+          </motion.button>
+          <a
+            href='https://drive.google.com/file/d/1h5IGsWQflCqzkoPmK9fVPu2UReHLRNRx/view?usp=sharing'
+            className="px-8 py-4 rounded-lg font-semibold text-white bg-accent-green hover:bg-green-500 transition shadow-lg text-lg border-2 border-accent-green focus:outline-none focus:ring-2 focus:ring-accent-green"
+            style={{ boxShadow: '0 2px 16px 0 #10B98155' }}
+            target="_blank" rel="noopener noreferrer"
+          >
+            Скачать презентацию
+          </a>
+        </div>
       </div>
     </section>
   )
