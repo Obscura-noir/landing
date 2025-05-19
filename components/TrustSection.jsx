@@ -19,7 +19,7 @@ export default function TrustSection() {
             <span className="text-gray-400 mt-2">лет опыта в финтехе</span>
           </div>
           <div className="flex flex-col items-center">
-            <span className="text-4xl font-bold text-accent-green">$XX млн</span>
+            <span className="text-4xl font-bold text-accent-green">$250 млн</span>
             <span className="text-gray-400 mt-2">проведено транзакций</span>
           </div>
         </div>
