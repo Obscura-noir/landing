@@ -4,7 +4,7 @@ import { useState } from 'react'
 const faqs = [
   {
     q: 'Как обеспечивается анонимность?',
-    a: 'Используем TOR-доступ, не требуем KYC, все транзакции проходят через децентрализованный эскроу.'
+    a: 'TOR-доступ, отсутствие KYC, децентрализованный эскроу. Мы не храним ваши данные.'
   },
   {
     q: 'Какие гарантии безопасности средств?',
@@ -22,23 +22,27 @@ const faqs = [
     q: 'Как работает эскроу?',
     a: 'Контракт блокирует средства до выполнения условий сделки, после чего автоматически переводит их получателю.'
   },
+  {
+    q: 'Можно ли работать без регистрации?',
+    a: 'Да, регистрация и KYC не требуются для доступа к платформе.'
+  },
 ]
 
 export default function FAQ() {
   const [open, setOpen] = useState(null)
   return (
-    <section className="py-20 bg-dark-bg">
+    <section className="py-20 bg-dark-bg border-t border-gray-800">
       <div className="container mx-auto px-4 max-w-2xl">
-        <h2 className="text-3xl font-bold mb-8">FAQ</h2>
+        <h2 className="text-3xl font-bold mb-8 text-center">FAQ</h2>
         <div className="space-y-4">
           {faqs.map((item, i) => (
-            <div key={i} className="border border-gray-800 rounded-lg">
+            <div key={i} className={`border border-gray-800 rounded-lg transition-colors ${open === i ? 'bg-gray-900/40 border-accent-purple' : 'bg-gray-900/20'}`}>
               <button
                 className="w-full flex justify-between items-center px-6 py-4 text-left text-lg font-medium text-white focus:outline-none"
                 onClick={() => setOpen(open === i ? null : i)}
               >
-                <span>{item.q}</span>
-                <span className="ml-4 text-2xl">{open === i ? '−' : '+'}</span>
+                <span className="flex items-center gap-2"><span className="text-2xl">💬</span>{item.q}</span>
+                <span className={`ml-4 text-2xl transition-transform ${open === i ? 'text-accent-purple rotate-45' : 'text-gray-400'}`}>{open === i ? '−' : '+'}</span>
               </button>
               {open === i && (
                 <div className="px-6 pb-4 text-gray-300 animate-fade-in">
