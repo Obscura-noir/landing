@@ -8,6 +8,7 @@ import TrustSection from '../components/TrustSection'
 import ApplicationForm from '../components/ApplicationForm'
 import FAQ from '../components/FAQ'
 import Footer from '../components/Footer'
+import { SpeedInsights } from "@vercel/speed-insights/next"
 
 function FixedHeader() {
   const handleClick = () => {
@@ -50,6 +51,7 @@ export default function Home() {
       </section>
       <FAQ />
       <Footer />
+      <SpeedInsights />
     </main>
   )
 } 
